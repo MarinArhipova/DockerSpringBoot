@@ -1,0 +1,48 @@
+version: '3.3'
+
+services:
+
+  cat-service:
+    build:
+      context: CatsService
+      dockerfile: Dockerfile
+    networks:
+      - cloud
+
+  countries-service:
+    build:
+      context: CountriesService
+      dockerfile: Dockerfile
+    networks:
+      - cloud
+
+
+  user-info-service:
+    build:
+      context: UsersInfoService
+      dockerfile: Dockerfile
+    networks:
+      - cloud
+
+  zuul-service:
+    build:
+      context: ZuulService
+      dockerfile: Dockerfile
+    networks:
+      - cloud
+    ports:
+      - 8080:8080
+
+
+  service-registry-service:
+    build:
+      context: ServiceRegistry
+      dockerfile: Dockerfile
+    networks:
+      - cloud
+    ports:
+      - 9000:9000
+
+networks:
+  cloud:
+    external: false
