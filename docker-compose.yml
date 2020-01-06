@@ -6,43 +6,49 @@ services:
     build:
       context: CatsService
       dockerfile: Dockerfile
-    networks:
-      - cloud
+    container_name: cat-service
+    ports:
+      - 8090:8090
+    depends_on:
+      - zuul-service
+      - service-registry-service
 
   countries-service:
     build:
       context: CountriesService
       dockerfile: Dockerfile
-    networks:
-      - cloud
-
+    container_name: countries-service
+    ports:
+      - 8030:8030
+    depends_on: 
+      - zuul-service
+      - service-registry-service
 
   user-info-service:
     build:
       context: UsersInfoService
       dockerfile: Dockerfile
-    networks:
-      - cloud
+    container_name: user-info-service
+    ports:
+      - 8040:8040
+    depends_on: 
+      - zuul-service
+      - service-registry-service
 
   zuul-service:
     build:
       context: ZuulService
       dockerfile: Dockerfile
-    networks:
-      - cloud
+    container_name: zuul-service
+    depends_on: 
+      - service-registry-service
     ports:
       - 8080:8080
-
 
   service-registry-service:
     build:
       context: ServiceRegistry
       dockerfile: Dockerfile
-    networks:
-      - cloud
+    container_name: registry-service
     ports:
-      - 9000:9000
-
-networks:
-  cloud:
-    external: false
+      - 8761:8761
