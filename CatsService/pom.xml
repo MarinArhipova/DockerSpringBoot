@@ -4,14 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.itis</groupId>
     <artifactId>cat-service</artifactId>
     <version>0.1</version>
 
     <parent>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Camden.SR7</version>
+        <groupId>ru.itis</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.1</version>
     </parent>
 
     <dependencies>
@@ -44,5 +43,12 @@
         </dependency>
     </dependencies>
 
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

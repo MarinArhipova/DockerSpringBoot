@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/18. SpringCloud.iml" filepath="$PROJECT_DIR$/.idea/18. SpringCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZuulService/zuul-service.iml" filepath="$PROJECT_DIR$/ZuulService/zuul-service.iml" />
     </modules>
   </component>
 </project>

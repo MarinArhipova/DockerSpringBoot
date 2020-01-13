@@ -7,8 +7,6 @@ services:
       context: CatsService
       dockerfile: Dockerfile
     container_name: cat-service
-    ports:
-      - 8090:8090
     depends_on:
       - zuul-service
       - service-registry-service
@@ -18,8 +16,6 @@ services:
       context: CountriesService
       dockerfile: Dockerfile
     container_name: countries-service
-    ports:
-      - 8030:8030
     depends_on: 
       - zuul-service
       - service-registry-service
@@ -29,8 +25,6 @@ services:
       context: UsersInfoService
       dockerfile: Dockerfile
     container_name: user-info-service
-    ports:
-      - 8040:8040
     depends_on: 
       - zuul-service
       - service-registry-service
@@ -51,4 +45,4 @@ services:
       dockerfile: Dockerfile
     container_name: registry-service
     ports:
-      - 8761:8761
+      - 9000:9000
